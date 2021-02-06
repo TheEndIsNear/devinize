@@ -12,9 +12,9 @@ defmodule Devinize.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Devinize.PubSub},
       # Start the Endpoint (http/https)
-      DevinizeWeb.Endpoint
+      DevinizeWeb.Endpoint,
       # Start a worker by calling: Devinize.Worker.start_link(arg)
-      # {Devinize.Worker, arg}
+      Devinize.DevinServer
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

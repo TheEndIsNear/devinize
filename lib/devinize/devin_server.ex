@@ -3,6 +3,14 @@ defmodule Devinize.DevinServer do
 
   @jokes_file "lib/devin_jokes.json"
 
+  def start_link(opts \\ []) do
+    GenServer.start_link(__MODULE__, opts, name: __MODULE__)
+  end
+
+  def get_joke do
+    GenServer.call(__MODULE__, :get_joke)
+  end
+
   @impl true
   def init(_args) do
     {:ok, [], {:continue, :setup_jokes}}
